@@ -310,7 +310,7 @@ _int2str:
 	jnl percorre
 	mov byte [res+esi],'-'
 	inc esi
-	neg eax ; muda o sinal
+	neg eax ;muda o sinal
 percorre: ;pula se nao negativo
 	div ebx
 	add edx,48 ;fator de conversao de inteiro pra ASCII
@@ -318,9 +318,9 @@ percorre: ;pula se nao negativo
 	inc ecx
 	sub edx,edx
 	cmp eax,0
-	jne percorre ;implementacao recursiva. Faz ate o final da string
+	jne percorre ;faz ate o quociente ser diferente de zero
 final:
-	pop edx
+	pop edx ;ultimo resto
 	mov byte [res+esi],dl
 	dec ecx
 	inc esi
